@@ -8,7 +8,7 @@ import moment from "moment";
 import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Write = () => {
   const state = useLocation().state;
@@ -17,7 +17,7 @@ const Write = () => {
   const [file, setFile] = useState(state?.img || null);
   const [cat, setCat] = useState(state?.cat || "");
 
-  console.log(state)
+  const navigate = useNavigate();
 
   const upload = async () => {
     try {
@@ -60,6 +60,8 @@ const Write = () => {
             },
             { withCredentials: true }
           );
+          navigate('/');
+
     } catch (err) {
       console.log(err);
     }

@@ -149,6 +149,7 @@ body {
         .post {
           display: flex;
           gap: 100px;
+          align-items: flex-start;
 
           &:nth-child(2n+1) {
             flex-direction: row-reverse;
@@ -157,6 +158,14 @@ body {
           .img {
             flex: 2;
             position: relative;
+            display: inline-flex;
+
+            img {
+              width: 100%;
+              height: auto; // Maintain aspect ratio
+              object-fit: cover; // Ensures consistent scaling within the container
+              display: block;
+            }
 
             &::after{
               content: "";
